@@ -2,10 +2,8 @@ package com.example.fintech_digital_wallet_and_transaction_engine_api.exception;
 
 import com.example.fintech_digital_wallet_and_transaction_engine_api.dto.ErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.cglib.core.Local;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

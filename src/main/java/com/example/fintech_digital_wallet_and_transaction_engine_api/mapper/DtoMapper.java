@@ -1,6 +1,5 @@
 package com.example.fintech_digital_wallet_and_transaction_engine_api.mapper;
 
-import com.example.fintech_digital_wallet_and_transaction_engine_api.dto.ErrorResponse;
 import com.example.fintech_digital_wallet_and_transaction_engine_api.dto.TransactionResponse;
 import com.example.fintech_digital_wallet_and_transaction_engine_api.dto.UserResponse;
 import com.example.fintech_digital_wallet_and_transaction_engine_api.dto.WalletResponse;

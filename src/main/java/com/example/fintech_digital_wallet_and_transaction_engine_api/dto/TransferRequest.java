@@ -3,7 +3,6 @@ package com.example.fintech_digital_wallet_and_transaction_engine_api.dto;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.Getter;
 
 import java.math.BigDecimal;
 
