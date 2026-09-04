@@ -6,6 +6,7 @@ import com.example.fintech_digital_wallet_and_transaction_engine_api.entity.Tran
 import com.example.fintech_digital_wallet_and_transaction_engine_api.entity.TransactionType;
 import com.example.fintech_digital_wallet_and_transaction_engine_api.service.TransactionService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -38,6 +39,7 @@ public class TransactionController {
     }
 
     @GetMapping
+    @SecurityRequirement(name = "bearerAuth")
     @Operation(summary = "List transactions", description = "Return a filtered, paginated transaction history.")
     @ApiResponse(responseCode = "200", description = "Transactions returned")
     public ResponseEntity<Page<TransactionResponse>> getAllTransactions(

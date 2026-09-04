@@ -4,6 +4,7 @@ import com.example.fintech_digital_wallet_and_transaction_engine_api.dto.Registe
 import com.example.fintech_digital_wallet_and_transaction_engine_api.dto.UserResponse;
 import com.example.fintech_digital_wallet_and_transaction_engine_api.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -26,6 +27,7 @@ public class UserController {
 
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
+    @SecurityRequirement(name = "bearerAuth")
     @Operation(summary = "List users", description = "Return all registered users. Requires the ADMIN role.")
     @ApiResponse(responseCode = "200", description = "Users returned")
     public ResponseEntity<List<UserResponse>> getAllUsers() {

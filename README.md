@@ -85,11 +85,17 @@ To stop the stack:
 docker compose down
 ```
 
-The Compose file keeps PostgreSQL private to the Docker network so it does not conflict with an existing PostgreSQL service using host port `5432`.
+PostgreSQL is also published on `localhost:5432` so the application can be started directly from IntelliJ using the default datasource settings. Stop any other PostgreSQL service using port `5432` before starting Compose.
 
 ### Local Maven workflow
 
-For a local Java 17 environment with PostgreSQL available on `localhost:5432`:
+For a local Java 17 or 21 environment, start the database first:
+
+```bash
+docker compose up -d postgres
+```
+
+Then start the application from IntelliJ or the Maven wrapper. The default local connection is `postgres/secret` on `localhost:5432`:
 
 ```bash
 ./mvnw test
@@ -110,7 +116,14 @@ The generated OpenAPI document is available at:
 
 [OpenAPI JSON](http://localhost:8080/v3/api-docs)
 
-Authentication endpoints are public. The remaining API endpoints require a bearer token returned by `POST /api/v1/auth/login`.
+Authentication endpoints are public. To test protected endpoints:
+
+1. Use `POST /api/v1/users` to register a user.
+2. Use `POST /api/v1/auth/login` and copy the returned JWT.
+3. Select **Authorize** in Swagger UI and enter the token (without the `Bearer ` prefix).
+4. Execute the protected operations; Swagger UI adds the bearer header automatically.
+
+The remaining API endpoints require the bearer token returned by `POST /api/v1/auth/login`.
 
 ## Core Endpoints
 
